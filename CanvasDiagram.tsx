@@ -1,20 +1,20 @@
 import React, { useEffect, useRef } from 'react';
-import { Canvas, Rect } from 'fabric';
+import { fabric } from 'fabric';
 
 export const CanvasDiagram: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const fabricRef = useRef<Canvas>(null);
+  const fabricRef = useRef<fabric.Canvas>(null);
 
   useEffect(() => {
     if (canvasRef.current) {
-      fabricRef.current = new Canvas(canvasRef.current, {
+      fabricRef.current = new fabric.Canvas(canvasRef.current, {
         backgroundColor: '#f5f5f5',
         width: 800,
         height: 600,
       });
 
       // Додай базовий прямокутник
-      const rect = new Rect({
+      const rect = new fabric.Rect({
         left: 100,
         top: 100,
         fill: 'lightblue',
